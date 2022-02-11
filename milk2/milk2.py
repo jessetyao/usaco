@@ -18,7 +18,7 @@ with open('milk2.in','r') as fin:
         milking.append(t)
     
 milking = sorted(milking)
-print(milking)
+#print(milking)
 
 for i in range (len(milking)):
     if i == 0:
@@ -47,10 +47,10 @@ for i in range (len(interv)):
     if nocow > longest_nocow:
         longest_nocow = nocow
 
-print(longest_interval)
-print (longest_nocow)
+#print(longest_interval)
+#print (longest_nocow)
 
-print (interv)
+#print (interv)
     
 
 with open ('milk2.out','w') as fout:
