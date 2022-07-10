@@ -93,7 +93,7 @@ int main (){
                 cout << "found one" << endl;
                 string str1 = to_string(i);
                 string str2 = to_string(j);
-                string str3 = str2+'/'+str1;
+                string str3 = str1+'/'+str2;
                 final_list.push_back(str3);
             }
         }
