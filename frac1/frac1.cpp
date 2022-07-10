@@ -17,8 +17,9 @@ vector <string> final_list;
 //listm.reserve(160);
 
 
-vector<int> primeFactors(int n, vector <int> listofprimefactors)
+vector<int> primeFactors(int n)
 {
+    vector <int> listofprimefactors;
     listofprimefactors.resize(0);
     // Print the number of 2s that divide n
     while (n % 2 == 0)
@@ -61,7 +62,13 @@ bool comparetwo(vector <int> list1, vector <int>list2){
     return true;
 }
 
-
+void print_vector(string title, vector<int> vec){
+            cout << title << ": ";
+            for(int x: vec){
+                cout << x << ", ";
+            }
+            cout << endl;
+}
 
 int main (){
     ifstream inFile;
@@ -71,24 +78,26 @@ int main (){
     inFile >> d;
     
 
-    for (int i = 0; i < d; i++){
-        for (int j = 0; j < d; j++) {
-            vector <int> listholder = primeFactors (i,listn);
-            vector <int> listholder2 = primeFactors (j,listm);
-            if (comparetwo (listn,listm)){
+    vector<int> listholder = primeFactors(1);
+    for(int x : listholder){
+        cout << " " << x;
+    }
+    for (int i = 1; i < d-1; i++){
+        for (int j = i+1; j < d; j++) {
+            vector <int> listholder = primeFactors (i);
+            vector <int> listholder2 = primeFactors (j);
+            cout << i << "  " << j << endl;
+            print_vector("listholder", listholder);
+            print_vector("listholder2", listholder2);
+            if ( listholder2.size() > 0 && comparetwo (listholder,listholder2)){
+                cout << "found one" << endl;
                 string str1 = to_string(i);
                 string str2 = to_string(j);
                 string str3 = str2+'/'+str1;
                 final_list.push_back(str3);
-
             }
-
-
-
         }
-
-
-    }
+     }
     for(int i=0; i < final_list.size(); i++){
        cout << final_list.at(i) << ' ';
     }
